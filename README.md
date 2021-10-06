@@ -1,4 +1,4 @@
-#A DID Web Approach for EDC Distributed Identity 
+# A DID Web Approach for EDC Distributed Identity 
 
 This document formalizes an approach to a decentralized identity infrastructure for the [EDC](https://github.com/eclipse-dataspaceconnector/DataSpaceConnector) that
 is not dependent on distributed ledger technologies (DLT) such as a blockchain. 
@@ -16,7 +16,7 @@ The following sequence diagram outlines the All DID Web flow:
 
 [Sequence Source](did.web.resolution.puml) 
 
-###Key Attributes
+### Key Attributes
 
 The key attributes of the All DID Web flow are:
 - DIDs are resolved using the did:web method and therefore are not anchored using a DLT.
@@ -67,7 +67,7 @@ It may also be a benefit if the EDC DIDs are GUIDs so that they are not practica
 
 4. Is it possible to host a corporate DID on a subdomain instead of the root domain? This would add more flexibility.
 
-##Flow 1: Hybrid ION
+## Flow 1: Hybrid ION
 
 The following sequence diagram outlines the Hybrid ION flow. The main difference is the corporate DID is anchored on ION and a backing blockchain (or other DLT): 
 
