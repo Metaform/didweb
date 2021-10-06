@@ -25,7 +25,7 @@ The key attributes of the All DID Web flow are:
     (e.g. an EDC deployment in the U.S. vs Europe)
   - **Corporate DID**: Static, always 1, rarely changes 
 - The did:web method defines a mapping from the DID URN to a URL for resolving the DID document. This makes it possible to resolve a DID using a simple URL mapping algorithm
-- The corporate did can be resolvable based on a well-known URL or resolved using did:web.
+- The corporate DID can be resolved using a well-known URL or resolved using did:web.
 - Trust can be keyed off a combination of Verifiable Credentials and the DNS domain where a DID is resolved. 
 
      
