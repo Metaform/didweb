@@ -62,7 +62,7 @@ It may also be a benefit if the EDC DIDs are GUIDs so that they are not practica
     claims presented in the JWS. 
   - **Sub Flow 2**: Claims may be included in the JWS but the provider may query the participant's Identity Hub for additional claims.
 
-3. Support for tokens. We may need to support a token mechanism where the provider provides a token to the client when it is first authorized to avoid reinitializing the flow on 
+3. Support for tokens. We may need to support a token mechanism where the provider supplies a token to the client when it is first authorized to avoid reinitializing the flow on 
    subsequent requests for performance.
 
 4. Is it possible to host a corporate DID on a subdomain instead of the root domain? This would add more flexibility.
