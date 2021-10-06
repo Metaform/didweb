@@ -8,7 +8,7 @@ which uses did:web for ephemeral DIDs and ION to anchor a "root" DID for each pa
 
 **NB: Diagrams are created using [PlantUML](https://plantuml.com/). Rendering plugins are available for IntelliJ and VS Code.**
           
-##Flow 1: All DID Web
+## Flow 1: All DID Web
 
 The following sequence diagram outlines the All DID Web flow:
 
@@ -67,7 +67,7 @@ It may also be a benefit if the EDC DIDs are GUIDs so that they are not practica
 
 4. Is it possible to host a corporate DID on a subdomain instead of the root domain? This would add more flexibility.
 
-## Flow 1: Hybrid ION
+## Flow 2: Hybrid ION
 
 The following sequence diagram outlines the Hybrid ION flow. The main difference is the corporate DID is anchored on ION and a backing blockchain (or other DLT): 
 
