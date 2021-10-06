@@ -1,0 +1,106 @@
+@startuml
+
+'skinparam NoteBackgroundColor WhiteSmoke
+'skinparam NoteFontColor Black
+'skinparam ParticipantBackgroundColor WhiteSmoke
+'skinparam ParticipantBorderColor DeepSkyBlue
+<style>
+    sequenceDiagram {
+     .participant {
+      FontColor 009400
+      roundcorner 20
+'      LineColor #52A0DC
+      BackgroundColor #DDF1D0
+      LineColor #00D200
+     }
+     .provider {
+      FontColor #027AFF
+      BackgroundColor #d9edff
+      LineColor #027AFF
+     }
+     .gaiax {
+      FontColor #000000
+      BackgroundColor #F2F2F2
+      LineColor #000000
+     }
+     .note {
+      FontColor #000000
+      BackgroundColor #FFF3B8
+      LineColor #FFF347
+     }
+
+
+    }
+}
+</style>
+
+skinparam sequence {
+ArrowColor Black
+LifeLineBorderColor 000000
+LifeLineBackgroundColor #A9DCDF
+
+skinparam AgentBackgroundColor White
+skinparam AgentBorderColor SkyBlue
+}
+
+skinparam SequenceGroupBorderColor #DADADA
+skinparam SequenceGroupHeaderFontColor #898A89
+skinparam BoxPadding 20
+skinparam ParticipantPadding 10
+
+skinparam AgentBackgroundColor White
+skinparam AgentBorderColor SkyBlue
+skinparam noteBorderColor FEF3BF
+skinparam SequenceBoxBorderColor F2F2F2
+skinparam shadowing false
+
+autonumber
+
+box "Participant" #F2F2F2
+participant ParticipantEDC as "Participant EDC" <<participant>>
+participant ParticipantHub as "Identity Hub" <<participant>>
+participant ParticipantDomain as "Web Domain" <<participant>>
+end box
+
+box "Provider" #FFFFFF
+participant ProviderEDC as "Provider EDC" <<provider>>
+participant ProviderPIP as "Provider PIP" <<provider>>
+participant DIDResolver as "DID Web Resolver" <<provider>>
+end box
+
+
+'box "GAIA-X" #FDFDFD
+'participant GaiaXRegistry as "GAIA-X Registry" <<gaiax>>
+'end box
+
+ParticipantEDC -> ProviderEDC : JWS w/ DID and Verifiable Credentials
+
+group Establish Trust for Foo
+ProviderEDC -> ProviderPIP: Trust foo.com?
+ProviderPIP -> ProviderEDC: OK
+end
+
+group DID Resolution
+ProviderEDC -> DIDResolver: Resolve did:web:foo.com:guid
+DIDResolver ->  ParticipantDomain: HTTP(S) GET foo.com/guuid/did.json
+ParticipantDomain -> DIDResolver: Participant EDC DID document
+ProviderEDC -> DIDResolver: Resolve did:web:foo.com (company DID)
+DIDResolver -> ProviderEDC: Participant EDC DID document
+ParticipantDomain -> DIDResolver: Company DID document
+DIDResolver -> ProviderEDC: Company DID document
+
+group#FDFDFD #FDFDFD Optional Corporate Credentials
+ProviderEDC ->  ParticipantHub: Get Corporate Credentials (Optional)
+ParticipantHub ->  ProviderEDC: Credentials
+ProviderEDC->ProviderEDC: Verify Corpoate Credentials (Optional))
+end
+
+note right of ProviderEDC #FEF3BF
+ Resolve other DIDs associated with claims
+end note
+end
+
+ProviderEDC -> ProviderEDC: Verify JWT and claims with public keys
+
+ProviderEDC->  ParticipantEDC: OK
+@enduml
