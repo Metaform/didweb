@@ -92,10 +92,10 @@ DIDResolver -> ProviderEDC: Participant EDC DID document
 ProviderEDC -> IONResolver: Resolve Company DID document
 IONResolver -> ProviderEDC: Company DID document
 
-group#FDFDFD #FDFDFD Optional Corporate Credentials
-ProviderEDC ->  ParticipantHub: Get Corporate Credentials (Optional)
+group#FDFDFD #FDFDFD Optional Corporate Authorizations
+ProviderEDC ->  ParticipantHub: Get Corporate Authorizations (Optional)
 ParticipantHub ->  ProviderEDC: Credentials
-ProviderEDC->ProviderEDC: Verify Corpoate Credentials (Optional))
+ProviderEDC->ProviderEDC: Verify Corpoate Authorizations (Optional))
 end
 
 note right of ProviderEDC #FEF3BF

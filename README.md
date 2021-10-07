@@ -33,7 +33,7 @@ The key attributes of the All DID Web flow are:
 
 The corporate and EDC DIDs have a slightly different structure.
 
-#### Corporate DID Document & Credentials
+#### Corporate DID Document & Authorizations
 - Contains a service endpoint pointing to a _Self-Description_
 - Contains a service endpoint pointing to an _Identity Hub_
 - The _Identity Hub_ contains 0..N verifiable credentials pertaining to the company
